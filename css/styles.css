@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.editor {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.toolbar {
+    width: 250px;
+    border-right: 3px solid rgb(58, 58, 58);
+    background: rgb(182, 182, 182);
+}
+
+.image-input {
+    padding: 10px;
+    border: 2px solid rgb(201, 201, 201);
+    box-shadow: 0px 5px 5px rgb(143, 143, 143);
+}
+
+.toolbar-item {
+    padding: 10px;
+}
+
+.toolbar-item__label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.toolbar-item__range {
+    width: 100%;
+}
+
+.image-area {
+    flex-grow: 1;
+    padding: 20px;
+    background: gray;
+}
+
+#canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+input::-webkit-file-upload-button {
+    background-color: rgb(130, 130, 130);
+    color: white;
+    padding: 0.3rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
