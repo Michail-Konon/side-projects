@@ -25,6 +25,39 @@ function updateSettings(key, value) {
     if(!image) return;
 
     settings[key] = value;
+    renderimage()
 }
+
+function generateFilter() {
+    const {brightness, saturation, blur, inversion} = settings
+
+    return `brightness(${brightness}%) saturate(${saturation}%) blur(${blur}px) invert(${inversion}%)`;
+}
+
+function renderimage() {
+    canvas.widht = image.widht;
+    canvas.height = image.height;
+
+    canvasCtx.filter = generateFilter();
+    canvasCtx.drawImage(image, 0, 0);
+
+}
+
+brightnessInput.addEventListener('change', () => updateSettings('brightness', brightnessInput.value));
+saturationInput.addEventListener('change', () => updateSettings('saturation', saturationInput.value));
+blurInput.addEventListener('change', () => updateSettings('blur', blurInput.value));
+inversionInput.addEventListener('change', () => updateSettings('inversion', inversionInput.value));
+
+fileInput.addEventListener('change', () => {
+    image = new Image();
+
+    image.addEventListener('load', () => {
+        resetSettings();
+        renderimage()
+    });
+
+    image.src = URL.createObjectURL(fileInput.files[0]);
+
+});
 
 resetSettings();
